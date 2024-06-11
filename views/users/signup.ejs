@@ -1,0 +1,25 @@
+<% layout("layouts/boilerplate.ejs") %>
+    <div class="row">
+      <div class="col-6 offset-3">
+        <form method="POST" action="/signup">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="enter the email" name="email" />
+          </div>
+    <div class="mb-3">
+      <label for="username" class="form-label" >Username</label>
+      <input type="text" placeholder="enter the username" class="form-control" name="username" />
+    </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">password</label>
+              <input type="password"  name="password"  class="form-control" autocomplete="new-password"/>
+            </div>
+            
+            <button class="btn  btn-dark">signup</button>
+        </form>
+       
+      </div>
+    </div>
+    
+  </body>
+</html>

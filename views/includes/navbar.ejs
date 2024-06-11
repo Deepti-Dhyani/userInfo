@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/"><b>Home</b></a>
+              <a class="nav-link" href="/candidates/new"><b>Create New Info</b> </a>
+              <a class="nav-link" href="/candidates"><b> All Candidates</b></a>
+              
+            </div>
+            <div class="navbar-nav btns">
+              <div class="start">
+                <% if(!currUser){ %>
+
+                    <button class="btn sign-up btn-warning"> <a href="/signup">signup</a></button>
+                    <button class="btn login btn-warning"> <a href="/login">login</a></button>
+
+                  
+                   <% } %>
+                  </div>
+                   <% if(currUser) { %>
+                  <form method="post" action="/logout">
+                    <button class="btn logout btn-danger">logout</button>
+                  </form>
+               <% } %>
+          </div>
+        </div>
+      </nav>
+</body>
+</html>

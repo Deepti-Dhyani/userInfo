@@ -1,0 +1,28 @@
+<% layout("layouts/boilerplate.ejs") %>
+ <h2>Candidate info</h2>
+  <div class="row row-cols-md-2 row-cols-lg-3">
+    <%  for(candidate of allcandidate) { %>
+      <a href="/candidates/<%= candidate._id %>">
+       
+      <div class="card col " style="width: 20rem;">
+        <img src="<%= candidate.image %>" class="card-img-top" alt="..." style="height: 18rem; ">
+        <div class="card-body">
+          <div class="card-img-overlay"></div>
+          <b><h4>UserName :</b>  <%= candidate.name %> </h4>
+          <p class="user-details"> 
+            <b>DOB:</b><%= candidate.dob %>
+            <b>Gender:</b><%= candidate.gender %></p>
+            
+        </div>
+  </div>
+ 
+    
+  </a>
+    <% } %>
+</div>
+
+  
+
+
+</body>
+</html>

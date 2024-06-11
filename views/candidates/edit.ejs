@@ -1,0 +1,46 @@
+<% layout("layouts/boilerplate.ejs") %>
+     <div class="row">
+        <div class="col-8 offset-3">
+            <form method="POST" action="/candidates/<%= candidate._id %>?_method=put" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="candidate[name]" class="form-control" placeholder="enter the name" value="<%= candidate.name %>">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" name="candidate[email]" class="form-control" placeholder="enter the email" value="<%= candidate.email %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="number" name="candidate[phone]" class="form-control" placeholder="enter the phone" value="<%= candidate.phone %>">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" class="form-control" name="candidate[image]" value="<%= candidate.image %>">
+                   <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth</label>
+            <textarea type="date" name="candidate[dob]"  id="" ><%= candidate.dob %></textarea>
+                   </div>
+                   <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input type="text" name="candidate[gender]" class="form-control"  value="<%= candidate.gender %>"></div>
+                                 
+                                
+                   <div class="mb-3">
+                    <label for="occupation" class="form-label">Occupation</label>
+                    <input type="text" name="candidate[occupation]" class="form-control" placeholder="enter the occupation" value="<%= candidate.occupation %>">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" name="candidate[address]" class="form-control"  value="<%= candidate.address %>">
+                </div>
+                
+
+                <button class="btn btn-success">Submit</button>
+            </form>
+        </div>
+     </div>
+    
+</body>
+</html>

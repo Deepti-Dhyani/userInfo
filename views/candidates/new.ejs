@@ -1,0 +1,52 @@
+<% layout("layouts/boilerplate.ejs") %>
+<div class="row">
+    <div class="col-6 offset-3">
+    <form method="post" action="/candidates" novalidate class="needs-validation" >
+
+   <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" name="candidate[name]" class="form-control" placeholder="enter the name">
+   </div>
+   <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" name="candidate[email]" class="form-control" placeholder="enter the email" >
+</div>
+
+<div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="number" name="candidate[phone]" class="form-control" placeholder="enter the phone" >
+</div>
+<div class="mb-3">
+    <label for="image" class="form-label">Image link</label>
+    <input type="text" class="form-control" name="candidate[image]" >
+</div>
+    
+           <div class="mb-3">
+            <label for="dob" class="form-label">DOB</label>
+            <input type="date" name="candidate[dob]" class="form-control" placeholder="enter the dob">
+           </div>
+   <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <input type="text" name="candidate[address]" class="form-control" placeholder="enter the address">
+   </div>
+   <div class="mb-3">
+    <label for="occupation" class="form-label">Occupation</label>
+    <input type="text" name="candidate[occupation]" class="form-control" placeholder="enter the occupation">
+</div>
+<div class="mb-3">
+    <label for="Gender" class="form-label">Gender</label>
+            <input type="text" name="candidate[gender]" class="form-control" placeholder="enter the gender"> 
+  </div>
+ 
+            
+        <button class="btn btn-success">Submit</button>
+    </form>
+</div>
+</div>
+        </div>
+
+        
+   
+    
+</body>
+</html>

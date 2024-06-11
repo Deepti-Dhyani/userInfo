@@ -1,0 +1,109 @@
+<% layout("layouts/boilerplate.ejs") %>
+      <div class="row">
+        <h3> <b>User Detailes</b></h3>
+        <div class="card img-container " style="width: 38rem;">
+            <img src="<%= candidate.image %>" class="profile-img card-img-top" alt="..." style="height: 26rem; ">
+            <div class="card-body">
+            <p class="User-details"> 
+                <h2>Personal Details</h2>
+               <b>Owned by:</b> <%= candidate.owner.username %> <br>
+                <b>Name:</b>  <%= candidate.name %> <br>
+                <b>Email:</b><%= candidate.email %> <br>
+                <b>Phone:</b><%= candidate.phone %> <br>
+                <b>DOB:</b><%= candidate.dob %> <br>
+                <b>Gender:</b> <%= candidate.gender %> <br>
+                <b>Address:</b> <%= candidate.address %> <br>
+                <b>Occupation:</b><%= candidate.occupation %>
+                
+                <br></p>
+            </div>
+            <div class="user-skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Skill 1</li>
+                    <li>Skill 2</li>
+                    <li>Skill 3</li>
+                    <li>Skill 4</li>
+                </ul>
+            </div>
+            <div class="user-social">
+                <h2>Social Media</h2>
+                <ul>
+                    <li><a href="http://www.facebook.com" >Facebook</a></li>
+                    <li><a href="http://www.twitter.com" >Twitter</a></li>
+                    <li><a href="http://www.linkedin.com" >LinkedIn</a></li>
+                    <li><a href="http://www.instagram.com" >Instagram</a></li>
+                </ul>
+            </div>
+            <% if(currUser && candidate.owner._id.equals(currUser._id)) { %>
+                <div class="show-btns ">     
+                       <a href="/candidates/<%= candidate._id %>/edit"><button class="btn btn-success offset-3">edit</button></a> <br><br>
+                    <form method="POST" action="/candidates/<%= candidate._id %>/delete?_method=DELETE">
+                        <button class="btn btn2 btn-success offset-5">Delete</button>
+                      </form>
+                    <% } %> 
+
+            
+                </div>
+           
+        </div>
+     
+         
+
+     
+           
+          </div>
+</div>
+</div>
+
+
+    
+   <% if(currUser)  { %>
+    <hr>
+    <div class="row">
+        
+        <div class="  col-6 offset-3">
+            <h2>Write a Feedback </h2>
+            <form method="post" action="/candidates/<%= candidate._id %>/feedbacks">
+                <div class="mb-3">
+                    <label for="Rating" class="form-label">Rating</label>
+                    <input type="range" name="feedback[rating]" min="1" max="5" class="form-range" > <br>
+                </div>
+                <div class="mb-3">
+                    <label for="Feedback" class="form-label"></label>
+                    <textarea type="text" placeholder="enter the feedback" name="feedback[comment]" class="form-control"></textarea>
+                </div>
+                
+                <button class="btn btn-dark">submit</button>
+            </form>
+  <%  } %>
+    
+        </div>
+    </div>
+   
+
+    <hr>
+    
+    <div class="row ">
+        
+        <h2>All feedback</h2>   
+    <%  for(feedback of candidate.feedbacks ) { %>
+    <div class="feedback-card col-4 ms-3 mb-3" >
+
+
+                <div class="card-body">
+            <h5 class="card-title">@<%= feedback.author.username %></h5>
+            <b>Rating</b>  <%= feedback.rating %> <br>
+             <b>Comment</b> <%= feedback.comment %> <br>
+             <form
+             class="mb-3"
+             method="POST"
+             action="/candidates/<%= candidate._id %>/feedbacks/<%= feedback._id %>?_method=DELETE"
+           >
+             <button class="btn btn-sm btn-dark">Delete</button>
+           </form>
+    </div>
+    </div>
+    <% } %>
+    
+</div> 
